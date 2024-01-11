@@ -1,0 +1,24 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "The Odin Project RPS project.",
+  "main": "scripts.js",
+  "scripts": {
+    "build:sass": "sass ./:./",
+    "watch:sass": "sass --watch ./:./",
+    "build:vite": "vite build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "start": "npm-run-all --parallel build:sass watch:sass dev",
+    "build": "npm-run-all --parallel build:sass build:vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Adam Warsing",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69.7",
+    "vite": "^5.0.11"
+  }
+}

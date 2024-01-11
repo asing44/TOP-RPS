@@ -44,6 +44,6 @@ function game() {
     }
 }
 
-game()
+// game()
 
 console.log("PLAYER SCORE: " + playerScore, "\nCOMPUTER SCORE: " + computerScore, "\nGAMES PLAYED: " + gamesPlayed);
