@@ -71,6 +71,7 @@ small {
 a,
 button {
   all: unset;
+  cursor: pointer;
 }
 
 ul.-no-list,
@@ -107,7 +108,52 @@ select {
   width: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.display-c {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border: 1px solid red;
+}
+.display-c .choices-c {
+  display: flex;
+  min-height: 50px;
+  gap: 2rem;
+}
+.display-c .choices-c .player-choice-w, .display-c .choices-c .computer-choice-w {
+  display: flex;
+  height: 10rem;
+  width: 10rem;
+  justify-content: center;
+  padding: 1rem;
+  border: 2px solid #0D3B66;
+  border-radius: 0.25rem;
+}
+.display-c .user-buttons-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.display-c .user-buttons-c button {
+  display: grid;
+  min-width: 100px;
+  place-content: center;
+  padding: 0.5rem 1rem;
+  border: 1.32px solid #ffffff;
+  transition: all 150ms ease-in;
+}
+.display-c .user-buttons-c button:hover {
+  background-color: #ffffff;
+  color: #041425;
+  transform: translateX(2px) translateY(-2px);
+  box-shadow: -2px 2px 5px 2px rgba(255, 255, 255, 0.15);
 }
 
 /*# sourceMappingURL=style.css.map */

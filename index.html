@@ -13,8 +13,23 @@
 <body>
     <div class="main-c">
         <h1 class="title">Rock, Paper, Scissors!</h1>
-        <div class="display-c"></div>
-        <div class="user-buttons-c"></div>
+        <div class="display-c">
+            <div class="choices-c">
+                <div class="player-choice-w">
+                    <div class="player-choice-icon"></div>
+                    <div class="player-choice-text"></div>
+                </div>
+                <div class="computer-choice-w">
+                    <div class="computer-choice-icon"></div>
+                    <div class="computer-choice-text"></div>
+                </div>
+            </div>
+            <div class="user-buttons-c">
+                <button class="button-rock" onClick="rps('Rock')">Rock</button>
+                <button class="button-paper" onClick="rps('Paper')">Paper</button>
+                <button class="button-scissors" onClick="rps('Scissors')">Scissors</button>
+            </div>
+        </div>
     </div>
 </body>
 <script src="scripts.js"></script>

@@ -9,6 +9,7 @@ $color-secondary-light: #FAF0CA;
 $color-light: #ffffff;
 $color-dark: #041425;
 
+$animation-timing: all 150ms ease-in;
 
 *,
 *::before,
@@ -83,6 +84,7 @@ small {
 a,
 button {
     all: unset;
+    cursor: pointer;
 }
 
 ul.-no-list,
@@ -120,5 +122,55 @@ select {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 2rem;
+    gap: 5rem;
+    padding: 2rem;
+}
+
+.display-c {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid red;
+    
+    .choices-c {
+        display: flex;
+        min-height: 50px;
+        gap: 2rem;
+
+        .player-choice-w, .computer-choice-w {
+            display: flex;
+            height: 10rem;
+            width: 10rem;
+            justify-content: center;
+            padding: 1rem;
+            border: 2px solid $color-primary;
+            border-radius: 0.25rem;
+        }
+    }
+
+    .user-buttons-c {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        button {
+            display: grid;
+            min-width: 100px;
+            place-content: center;
+            padding: 0.5rem 1rem;
+            border: 1.32px solid $color-light;
+            transition: $animation-timing;
+
+            &:hover {
+                background-color: $color-light;
+                color: $color-dark;
+                transform: translateX(2px) translateY(-2px);
+                box-shadow: -2px 2px 5px 2px transparentize($color-light, 0.85);
+            }
+        }
+    }
 }
