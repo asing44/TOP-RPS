@@ -1,3 +1,8 @@
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
+
+gsap.registerPlugin(Flip);
+
 let computerScore = 0;
 let playerScore = 0;
 let gamesPlayed = 0;
@@ -52,3 +57,21 @@ function game() {
 // game()
 
 console.log("PLAYER SCORE: " + playerScore, "\nCOMPUTER SCORE: " + computerScore, "\nGAMES PLAYED: " + gamesPlayed);
+
+let userButtonsArr = gsap.utils.toArray(".--user-button");
+let userSelectionArr = gsap.utils.toArray(".--user-icon")
+
+userButtonsArr.forEach((btn, index) => {
+    btn.addEventListener("mouseenter", () => {
+        gsap.to(userSelectionArr[index], {
+            scale: 1,
+            ease: "bounce.out"
+        });
+    });
+    btn.addEventListener("mouseout", () => {
+        gsap.to(userSelectionArr[index], {
+            scale: 0,
+            ease: "power3.out"
+        });
+    })
+})
