@@ -125,7 +125,7 @@ select {
   min-height: 50px;
   gap: 5rem;
 }
-.display-c .choices-c .player-choice-w, .display-c .choices-c .computer-choice-w {
+.display-c .choices-c .player-choice-w, .display-c .choices-c .direction-c, .display-c .choices-c .computer-choice-w {
   display: flex;
   height: 20rem;
   width: 20rem;
@@ -142,8 +142,6 @@ select {
   max-width: 100%;
   flex: 1;
   aspect-ratio: 1/1;
-  padding: 0.5rem;
-  border: 1px solid red;
 }
 .display-c .choices-c .player-choice-w .player-choice-icons-c .icon-w {
   position: absolute;
@@ -155,6 +153,12 @@ select {
 }
 .display-c .choices-c .player-choice-w .player-choice-text {
   font-size: 2rem;
+}
+.display-c .choices-c .info-c {
+  max-width: 15rem;
+  font-size: 4rem;
+  text-align: center;
+  box-shadow: unset;
 }
 .display-c .user-buttons-c {
   display: flex;

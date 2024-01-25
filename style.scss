@@ -139,7 +139,7 @@ select {
         min-height: 50px;
         gap: 5rem;
 
-        .player-choice-w, .computer-choice-w {
+        .player-choice-w, .direction-c, .computer-choice-w {
             display: flex;
             height: 20rem;
             width: 20rem;
@@ -159,8 +159,6 @@ select {
                 max-width: 100%;
                 flex: 1;
                 aspect-ratio: 1 / 1;
-                padding: 0.5rem;
-                border: 1px solid red;
 
                 .icon-w {
                     position: absolute;
@@ -175,6 +173,17 @@ select {
             .player-choice-text {
                 font-size: 2rem;
             }
+        }
+
+        .info-c {
+            max-width: 15rem;
+            font: {
+                size: 4rem;
+            };
+            text: {
+                align: center;
+            }
+            box-shadow: unset;
         }
     }
 

@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
+import { TextPlugin } from "gsap/TextPlugin";
 
+gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(Flip);
 
 let computerScore = 0;
@@ -8,55 +10,27 @@ let playerScore = 0;
 let gamesPlayed = 0;
 
 const playerChoiceText = document.getElementsByClassName("player-choice-text")[0];
+const infoText = document.getElementsByClassName("info__text")[0];
 playerChoiceText.textContent = "";
 
-function getChoices() {
-    let computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice == 0) {
-        return 'Rock'
-    } else if (computerChoice == 1) {
-        return 'Paper'
-    } else {
-        return 'Scissors'
-    }
-}
+let infoText_tl = gsap.timeline({
+    paused: false,
+    yoyo: true,
+    repeat: -1
+});
 
-function rps(playerMove) {
-    if (playerMove == 'Rock') {
-        playerChoiceText.textContent = "Rock!";
-        if (getChoices() == 'Paper') {
-            computerScore += 1;
-        } else if (getChoices() == 'Scissors') {
-            playerScore += 1;
-        }
-    } else if (playerMove == "Paper") {
-        playerChoiceText.textContent = "Paper!";
-        if (getChoices() == "Rock") {
-            playerScore += 1;
-        } else if (getChoices() == "Scissors") {
-            computerScore += 1;
-        }
-    } else {
-        playerChoiceText.textContent = "Scissors!";
-        if (getChoices() == "Rock") {
-            computerScore += 1;
-        } else if (getChoices() == "Paper") {
-            playerScore += 1;
-        }
-    }
+infoText_tl.to(infoText, {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.in"
+})
 
-}
+function game(choice) {
+    gamesPlayed += 1;
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        rps()
-        gamesPlayed += 1;
-    }
 }
 
 // game()
-
-console.log("PLAYER SCORE: " + playerScore, "\nCOMPUTER SCORE: " + computerScore, "\nGAMES PLAYED: " + gamesPlayed);
 
 let userButtonsArr = gsap.utils.toArray(".--user-button");
 let userSelectionArr = gsap.utils.toArray(".--user-icon")
@@ -64,14 +38,26 @@ let userSelectionArr = gsap.utils.toArray(".--user-icon")
 userButtonsArr.forEach((btn, index) => {
     btn.addEventListener("mouseenter", () => {
         gsap.to(userSelectionArr[index], {
-            scale: 1,
+            scale: 0.85,
             ease: "bounce.out"
         });
+        gsap.to(playerChoiceText, {
+            text: btn.textContent + "!"
+        });
+        infoText_tl.restart().pause();
     });
     btn.addEventListener("mouseout", () => {
         gsap.to(userSelectionArr[index], {
             scale: 0,
             ease: "power3.out"
+        })
+        gsap.to(playerChoiceText, {
+            text: ""
         });
+        infoText_tl.play();
+
+    });
+    btn.addEventListener("click", (e) => {
+        game(e.target.value);
     })
 })
